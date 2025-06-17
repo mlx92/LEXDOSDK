@@ -17,16 +17,14 @@ Pod::Spec.new do |spec|
 
   spec.name         = "LEXDOSDK"
   spec.version      = "1.0.0"
-  spec.summary      = "A short description of LEXDOSDK."
+  spec.summary      = "A lightweight SDK for integrating LEXDO features into iOS apps."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  spec.description  = <<-DESC
-                   DESC
-
+ 
   spec.homepage     = "https://github.com/mlx92/LEXDOSDK"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
@@ -38,7 +36,7 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  spec.license      = "MIT (example)"
+  spec.license      = { :type => "Apache-2.0", :file => "LICENSE" }
   # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
@@ -80,7 +78,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/mlx92/LEXDOSDK", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/mlx92/LEXDOSDK.git", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -91,8 +89,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  # TODO
-  # spec.source_files  = "Classes", "Classes/**/*.{h,m}"
+  # spec.source_files  = "LEXDOSDK/**/*.{h,m}"
   # spec.exclude_files = "Classes/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"
@@ -118,8 +115,12 @@ Pod::Spec.new do |spec|
   #  the lib prefix of their name.
   #
 
-  # TODO
-  # spec.vendored_frameworks = 'HYManager-Swift/HYManagerSDK.framework'
+
+  spec.vendored_frameworks = 'LEXDOSDK/AIHelpSupportSDK.framework'
+
+  spec.frameworks = 'WebKit', "Photos", "PhotosUI"
+  spec.library = 'sqlite3'
+  spec.pod_target_xcconfig = { 'VALID_ARCHS' => 'x86_64 armv7 arm64' }
 
   # spec.framework  = "SomeFramework"
 
